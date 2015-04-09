@@ -17,62 +17,73 @@
 #include <iostream>
 using namespace std;
 
-class Solution {
+class Solution1 {
 public:
     static int trailingZeroes(int n);
 };
 
-// int Solution::trailingZeroes(int n)
-// {
-// 	int result = 1;
-// 	int count_2 = 0;
-// 	int count_5 = 0;
+int Solution1::trailingZeroes(int n)
+{
+	int result = 1;
+	int count_2 = 0;
+	int count_5 = 0;
 
-// 	if(n<5) return 0;
-// 	for(int i=2; i<=n; i+=2)
-// 	{
-// 		int temp = 0;
-// 		temp = i;
-// 		while(temp%2==0)
-// 		{
-// 			count_2++;
-// 			temp /= 2;
-// 		}
-// 	}
+	if(n<5) return 0;
+	for(int i=2; i<=n; i+=2)
+	{
+		int temp = 0;
+		temp = i;
+		while(temp%2==0)
+		{
+			count_2++;
+			temp /= 2;
+		}
+	}
 
-// 	for(int i=5; i<=n; i+=5)
-// 	{
-// 		int temp = 0;
-// 		temp = i;
-// 		while(temp%5==0)
-// 		{
-// 			count_5++;
-// 			temp /= 5;
-// 		}
-// 	}
+	for(int i=5; i<=n; i+=5)
+	{
+		int temp = 0;
+		temp = i;
+		while(temp%5==0)
+		{
+			count_5++;
+			temp /= 5;
+		}
+	}
 
-// 	result = (count_2<count_5)?count_2:count_5;
-// 	return result;
-// }
+	result = (count_2<count_5)?count_2:count_5;
+	return result;
+}
 
-// int Solution::trailingZeroes(int n)
-// {
-// 	int count_5 = 0;
+class Solution2 {
+public:
+    static int trailingZeroes(int n);
+};
 
-// 	for(int i=5; i<=n; i+=5)
-// 	{
-// 		int temp = 0;
-// 		temp = i;
-// 		while(temp%5==0)
-// 		{
-// 			count_5++;
-// 			temp /= 5;
-// 		}
-// 	}
-// 	return count_5;
-// }
+int Solution2::trailingZeroes(int n)
+{
+	int count_5 = 0;
 
-int Solution::trailingZeroes(int n)
+	for(int i=5; i<=n; i+=5)
+	{
+		int temp = 0;
+		temp = i;
+		while(temp%5==0)
+		{
+			count_5++;
+			temp /= 5;
+		}
+	}
+	return count_5;
+}
+
+
+class Solution3 {
+public:
+    static int trailingZeroes(int n);
+};
+
+int Solution3::trailingZeroes(int n)
 {
 	int count_5 = 0;
 
@@ -87,7 +98,7 @@ int Solution::trailingZeroes(int n)
 int main()
 {
 	int result;
-	result = Solution::trailingZeroes(3);
+	result = Solution3::trailingZeroes(3);
 	cout<<result<<endl;
 	return 0;
 }
