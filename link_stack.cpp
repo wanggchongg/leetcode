@@ -25,7 +25,7 @@ void push(LinkStack &stack, int &data)
 		stack.base = cur;
 	}
 	else
-	{
+	{//头插法
 		cur->next = stack.top;
 		stack.top = cur;
 	}
@@ -41,9 +41,17 @@ void pop(LinkStack &stack)
 	}
 	else
 	{
+
 		cur = stack.top;
-		stack.top = cur->next;
+		if(stack.top == stack.base)
+		{
+			stack.top = NULL;
+			stack.base = NULL;
+		}
+		else
+			stack.top = cur->next;
 		cout<<cur->data<<" exit stack"<<endl;
+		free(cur);
 	}
 }
 

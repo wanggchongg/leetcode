@@ -22,8 +22,8 @@ int main()
 					dp[k][j] = dp[k][j-1] + dp[k+1][j] - dp[k+1][j-1];
 					if(str[k] == str[j])
 						dp[k][j] = dp[k][j] + dp[k+1][j-1] + 1;
-					dp[k][j] += INF;
-					dp[k][j] %= INF;
+					dp[k][j] += INF; //防止出现负数
+					dp[k][j] %= INF; //防止数据越界
 				}
 			}
 			cout<<"Case #"<<i<<": "<<dp[0][str.size()-1]<<endl;

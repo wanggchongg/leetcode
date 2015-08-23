@@ -47,10 +47,10 @@ void quick_sort(int s[], int l, int r)
 
 int main()
 {
-	int number[10] = {8, 1, 8, 4, 9, 5, 8, 10, 3, 6};
-	quick_sort(number, 0, 9);
+	int number[7] = {49, 38, 65, 97, 76, 13, 27};
+	quick_sort(number, 0, 6);
 	int i;
-	for(i=0; i<10; i++)
+	for(i=0; i<7; i++)
 	{
 		printf("%d, ", number[i]);
 	}

@@ -1,4 +1,4 @@
-//带头结点的单链表的建立、测长和打印,插入， 排序，倒置，查找中间节点
+//带头结点的单链表的建立、测长和打印, 插入， 排序，倒置，查找中间节点
 #include <iostream>
 #include <stdlib.h>
 using namespace std;

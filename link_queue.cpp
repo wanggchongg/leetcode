@@ -26,7 +26,7 @@ void enQueue(LinkQueue &queue, int data)
 		queue.rear = cur;
 	}
 	else
-	{
+	{//尾插法
 		queue.rear->next = cur;
 		queue.rear = cur;
 	}
@@ -43,7 +43,15 @@ void deQueue(LinkQueue &queue)
 	else
 	{
 		cur = queue.front;
-		queue.front = cur->next;
+		if(queue.rear == queue.front)
+		{
+			queue.rear = NULL;
+			queue.front = NULL;
+		}
+		else
+		{
+			queue.front = cur->next;
+		}
 		cout<<cur->data<<" exit queue"<<endl;
 		free(cur);
 	}

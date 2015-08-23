@@ -1,5 +1,5 @@
 
-//用两个栈表示堆(用模板表示)
+//用两个栈表示 队列(用模板表示)
 #include <iostream>
 #include <string>
 using namespace std;

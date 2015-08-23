@@ -94,8 +94,9 @@ public:
 			year1 -= 1;
 		if(month2<=1 || (month2<=2&&day2<29))
 			year2 -= 1;
-		divide_4 = year2/4-year1/4;
+		//从年份0年到开始年的闰年个数-从年分0年到结束年的闰年个数
 		divide_400 = year2/400-year1/400;
+		divide_4 = year2/4-year1/4;
 		ndivide_100 = year2/100-year1/100;
 		lyNum = divide_4 + divide_400 - ndivide_100;
 		return lyNum;

@@ -1,6 +1,8 @@
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+using namespace std;
 
 struct A
 {
@@ -13,8 +15,24 @@ struct A
 	short g;
 };
 
+class B
+{
+public:
+	B()
+	{
+		cout<<"!!!"<<endl;
+	}
+	virtual void func(void);
+	virtual void func1(void);
+};
+
+struct C
+{};
+
 int main()
 {
+	cout<<"B_size:"<<sizeof(B)<<endl;
+	cout<<"C_size:"<<sizeof(struct C)<<endl;
 	struct A aaa;
 
 	printf("A_size:%d\n", sizeof(aaa));

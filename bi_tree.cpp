@@ -1,8 +1,8 @@
-/*二叉树的遍历* 2011.8.25*/
+/*二叉树的遍历*/
 
 #include <iostream>
-#include<string.h>
-#include<stack>
+#include <cstring>
+#include <stack>
 using namespace std;
 
 typedef struct node
@@ -17,8 +17,21 @@ typedef struct node1
     bool isFirst;
 }BTNode;
 
+void creatBinTree1(BinTree* &root) //前序遍历创建树，形如 A,B,C,#,#,D,#,#,E,#,#
+{
+    char value;
+    cin>>value;
+    if(value == '#') root = NULL; //递归结束条件
+    else
+    {
+        root = (BinTree *)malloc(sizeof(BinTree));
+        root->data = value;
+        creatBinTree1(root->lchild);
+        creatBinTree1(root->rchild);
+    }
+}
 
-void creatBinTree(char *s,BinTree *&root)  //创建二叉树，s为形如A(B,C(D,E))形式的字符串
+void creatBinTree2(char *s,BinTree *&root)  //创建二叉树，s为形如A(B,C(D,E))形式的字符串
 {
     int i;
     bool isRight=false;
@@ -221,39 +234,13 @@ void postOrder3(BinTree *root)     //非递归后序遍历
     }
 }
 
-void postOrder4(BinTree *root)
-{
-	stack<BinTree *> stack_tree;
-	BinTree *t = root;
-	BinTree *t_1 = NULL;
-
-	while(t || !stack_tree.empty()) {
-		while(t) {
-			stack_tree.push(t);
-			t = t->lchild;
-		}
-		if(!stack_tree.empty()) {
-			t = stack_tree.top();
-			if(t_1 != t && t->rchild) { //t_1 == t 时,说明第二次访问栈中的元素
-				t_1 = t;
-				t = t->rchild;
-			}else {
-				cout<<"val = "<<stack_tree.top()->data<<endl;
-				stack_tree.pop();
-				t = NULL;
-			}
-		}
-	}
-}
-
-
 int main(int argc, char *argv[])
 {
     char s[100];
     while(scanf("%s",s)==1)
     {
         BinTree *root=(BinTree *)malloc(sizeof(BinTree));
-        creatBinTree(s,root);
+        creatBinTree2(s,root);
         display(root);
         cout<<endl;
         preOrder2(root);
